@@ -1,0 +1,12 @@
+USE sales;
+SELECT * FROM customers;
+SELECT count(*) FROM transactions;
+SELECT count(*) FROM customers;
+SELECT * FROM transactions WHERE market_code="mark001";
+SELECT * FROM transactions WHERE currency="usd";
+SELECT * FROM date;
+SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date;
+SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date WHERE year="2018";
+SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date WHERE year="2020";
+SELECT sum(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date WHERE year="2020";
+SELECT sum(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date WHERE year="2020" AND transactions.market_code="mark001";
